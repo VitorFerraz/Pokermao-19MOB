@@ -53,7 +53,7 @@ class ListPokemonsActivity : AppCompatActivity() {
                         val telaDeDetalhe = Intent(this, FormPokemonActivity::class.java)
                         telaDeDetalhe.putExtra("POKEMON", it)
                         Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
-                        startActivityForResult(telaDeDetalhe,0)
+                        startActivityForResult(telaDeDetalhe,FormPokemonActivity.REQUEST_ALTER_DATA)
                     }
                 }
             }
@@ -63,7 +63,7 @@ class ListPokemonsActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK) {
+        if(resultCode == Activity.RESULT_OK && requestCode == FormPokemonActivity.REQUEST_ALTER_DATA) {
             listPokemonsViewModel.getPokemons()
         }
     }

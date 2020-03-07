@@ -20,6 +20,9 @@ import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FormPokemonActivity : AppCompatActivity() {
+    companion object {
+        val REQUEST_ALTER_DATA = 200
+    }
     val formPokemonViewModel: FormPokemonViewModel by viewModel()
     val picasso: Picasso by inject()
     lateinit var pokemon : Pokemon
