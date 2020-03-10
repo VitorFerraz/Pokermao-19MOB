@@ -22,6 +22,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class FormPokemonActivity : AppCompatActivity() {
     companion object {
         val REQUEST_ALTER_DATA = 200
+        val EXTRA_POKEMON = "EXTRA_POKEMON"
     }
     val formPokemonViewModel: FormPokemonViewModel by viewModel()
     val picasso: Picasso by inject()
@@ -60,7 +61,7 @@ class FormPokemonActivity : AppCompatActivity() {
     }
 
     private fun setValues() {
-        pokemon = intent.getParcelableExtra<Pokemon>("POKEMON")
+        pokemon = intent.getParcelableExtra<Pokemon>(FormPokemonActivity.EXTRA_POKEMON)
         tvPokemonNameForm.text = pokemon.nome
 
         picasso.load("https://pokedexdx.herokuapp.com${pokemon.urlImagem}").into(ivPokemonForm)

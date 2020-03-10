@@ -5,6 +5,7 @@ import br.com.vitor.pokermao.api.AuthInterceptor
 import br.com.vitor.pokermao.api.PokemonService
 import br.com.vitor.pokermao.repository.PokemonRepository
 import br.com.vitor.pokermao.repository.PokemonRepositoryImpl
+import br.com.vitor.pokermao.view.detail.DetailViewModel
 import br.com.vitor.pokermao.view.form.FormPokemonViewModel
 import br.com.vitor.pokermao.view.list.ListPokemonsAdapter
 import br.com.vitor.pokermao.view.list.ListPokemonsViewModel
@@ -53,6 +54,8 @@ val viewModelModule = module {
     viewModel { ListPokemonsViewModel(get()) }
     viewModel { SplashViewModel(get()) }
     viewModel { FormPokemonViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
+
 }
 val repositoryModule = module {
     single<PokemonRepository> { PokemonRepositoryImpl(get()) }
