@@ -53,6 +53,12 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (tts.isSpeaking) {
+            tts.stop()
+        }
+    }
     private fun initTTS() {
         tts = TextToSpeech(this,TextToSpeech.OnInitListener {
             if (it != TextToSpeech.ERROR) {
